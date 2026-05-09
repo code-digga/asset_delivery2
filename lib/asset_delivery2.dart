@@ -21,7 +21,7 @@ class AssetDelivery2 {
     try {
       final String? path = await _channel.invokeMethod<String>('initialize', {
         'tag': tag,
-        'sampleFilename': "images 3/$sampleFilename",
+        'sampleFilename': "images/$sampleFilename",
       });
       _basePath = path;
     } on PlatformException catch (e) {
@@ -39,7 +39,7 @@ class AssetDelivery2 {
     }
     final fullPath = Platform.isAndroid
         ? p.join(_basePath!, 'images', filename)
-        : p.join(_basePath!, 'images 3', filename);
+        : p.join(_basePath!, 'images', filename);
     return fullPath;
   }
 
